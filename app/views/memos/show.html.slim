@@ -1,0 +1,13 @@
+p#notice
+  = notice
+p
+  strong
+    | Title:
+  = @memo.title
+p
+  strong
+    | Body:
+  = @memo.body
+= link_to 'Edit', edit_memo_path(@memo)
+|  | 
+= link_to 'Back', memos_path
