@@ -4,12 +4,13 @@ html
     title
       | Smemo
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all', :'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .ink-grid
       .column-group
-        .all-10
+        .all-100
+          = render "header/header"
+      .column-group.push-center
         .all-80
           = yield
-        .all-10

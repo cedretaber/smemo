@@ -1,13 +1,19 @@
-p#notice
-  = notice
-p
-  strong
-    | Title:
-  = @memo.title
-p
-  strong
-    | Body:
-  = @memo.body
-= link_to 'Edit', edit_memo_path(@memo)
+- if notice
+  #notice.ink-alert.block[role="alert"]
+    button.ink-dismiss
+      | &times;
+    h4
+      | Notice
+    p
+      = notice
+
+dl
+  dt Title
+  dd= @memo.title
+  dt Body
+  dd= @memo.body
+br
+
+= link_to '', edit_memo_path(@memo), class: "fa fa-pencil-square-o"
 |  | 
-= link_to 'Back', memos_path
+= link_to '', memos_path, class: "fa fa-undo"

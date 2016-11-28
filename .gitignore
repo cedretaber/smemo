@@ -16,3 +16,10 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Idea
+.idea
+smemo.iml
+
+# rbenv
+.ruby-version

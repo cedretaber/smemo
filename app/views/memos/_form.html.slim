@@ -1,6 +1,8 @@
-= form_for(memo) do |f|
+= form_for(memo, class: "ink-form") do |f|
   - if memo.errors.any?
-    #error_explanation
+    #error_explanation.ink-alert.basic.error[role="alert"]
+      button.ink-dismiss
+        | &times;
       h2
         = pluralize(memo.errors.count, "error")
         |  prohibited this memo from being saved:
@@ -8,11 +10,13 @@
         - memo.errors.full_messages.each do |message|
           li
             = message
-  .field
+  .field.control-group
     = f.label :title
-    = f.text_field :title
-  .field
+    .control= f.text_field :title
+  .field.control-group
     = f.label :body
-    = f.text_field :body
+    .control= f.text_field :body
+  br
   .actions
-    = f.submit
+    = button_tag type: "submit", class: "ink-button blue" do
+      i.fa.fa-pencil-square-o
