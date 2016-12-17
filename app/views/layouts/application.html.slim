@@ -7,4 +7,10 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    .ink-grid
+      .column-group
+        .all-100
+          = render "header/header"
+      .column-group.push-center
+        .all-80
+          = yield

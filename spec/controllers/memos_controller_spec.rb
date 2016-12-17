@@ -24,11 +24,11 @@ RSpec.describe MemosController, type: :controller do
   # Memo. As you add validations to Memo, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { title: "title", body: "body" }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { title: nil, body: nil }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,16 @@ RSpec.describe MemosController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { title: "title updated", body: "body updated" }
       }
 
       it "updates the requested memo" do
         memo = Memo.create! valid_attributes
         put :update, params: {id: memo.to_param, memo: new_attributes}, session: valid_session
         memo.reload
-        skip("Add assertions for updated state")
+        new_memo = Memo.find(memo.id)
+        expect(new_memo.title).to eq(new_attributes[:title])
+        expect(new_memo.body).to eq(new_attributes[:body])
       end
 
       it "assigns the requested memo as @memo" do
